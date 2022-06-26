@@ -15,6 +15,8 @@ import 'javascript_console_result.dart';
 import 'long_press_alert_dialog.dart';
 import 'models/browser_model.dart';
 
+import 'idiomReplaceX.dart';
+
 class WebViewTab extends StatefulWidget {
   final GlobalKey<WebViewTabState> key;
 
@@ -158,6 +160,7 @@ class WebViewTabState extends State<WebViewTab> with WidgetsBindingObserver {
           }
         },
         onLoadStart: (controller, url) async {
+
           widget.webViewModel.isSecure = Util.urlIsSecure(url!);
           widget.webViewModel.url = url;
           widget.webViewModel.loaded = false;
@@ -203,6 +206,10 @@ class WebViewTabState extends State<WebViewTab> with WidgetsBindingObserver {
               }
             }
           }
+          // inject IdiomReplaceX code
+          var result = await controller.injectJavascriptFileFromAsset(assetFilePath: "assets/js/idiomreplacex-client/inject.js");
+          print(result.runtimeType); // int
+          print("IdiomReplaceX injected"); // 30
 
           if (isCurrentTab(currentWebViewModel)) {
             widget.webViewModel.needsToCompleteInitialLoad = false;
@@ -321,6 +328,7 @@ class WebViewTabState extends State<WebViewTab> with WidgetsBindingObserver {
           );
         },
         onReceivedServerTrustAuthRequest: (controller, challenge) async {
+          /*
           var sslError = challenge.protectionSpace.sslError;
           if (sslError != null && (sslError.iosError != null || sslError.androidError != null)) {
             if (Platform.isIOS && sslError.iosError == IOSSslError.UNSPECIFIED) {
@@ -332,6 +340,7 @@ class WebViewTabState extends State<WebViewTab> with WidgetsBindingObserver {
             }
             return ServerTrustAuthResponse(action: ServerTrustAuthResponseAction.CANCEL);
           }
+          */
           return ServerTrustAuthResponse(action: ServerTrustAuthResponseAction.PROCEED);
         },
         onLoadError: (controller, url, code, message) async {

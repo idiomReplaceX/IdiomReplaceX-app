@@ -100,7 +100,7 @@ class _WebViewTabAppBarState extends State<WebViewTabAppBar>
                 return leading != null
                     ? AppBar(
                         backgroundColor:
-                            isIncognitoMode ? Colors.black87 : Colors.blue,
+                            isIncognitoMode ? Colors.black87 : Colors.purple,
                         leading: _buildAppBarHomePageWidget(),
                         titleSpacing: 0.0,
                         title: _buildSearchTextField(),
@@ -108,7 +108,7 @@ class _WebViewTabAppBarState extends State<WebViewTabAppBar>
                       )
                     : AppBar(
                         backgroundColor:
-                            isIncognitoMode ? Colors.black87 : Colors.blue,
+                            isIncognitoMode ? Colors.black87 : Colors.purple,
                         titleSpacing: 10.0,
                         title: _buildSearchTextField(),
                         actions: _buildActionsMenu(),

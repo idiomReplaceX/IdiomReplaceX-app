@@ -41,7 +41,7 @@ class _AnimatedFlutterBrowserLogoState extends State<AnimatedFlutterBrowserLogo>
         height: widget.size,
         width: widget.size,
         child: CircleAvatar(
-            backgroundImage: AssetImage("assets/icon/icon.png")),
+            backgroundImage: AssetImage("assets/icon/irx-logo.png")),
       ),
     );
   }

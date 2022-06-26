@@ -74,7 +74,7 @@ dev_dependencies:
 flutter_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/icon/icon.png"
+  image_path: "assets/icon/irx-logo.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -95,6 +95,8 @@ flutter:
     - assets/images/duckduckgo_logo.png
     - assets/images/ecosia_logo.png
     - assets/icon/icon.png
+    - assets/icon/irx-logo.png
+    - assets/js/idiomreplacex-client/inject.js
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

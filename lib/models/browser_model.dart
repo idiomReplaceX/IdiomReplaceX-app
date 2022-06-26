@@ -23,7 +23,7 @@ class BrowserSettings {
   bool debuggingEnabled;
 
   BrowserSettings({
-    this.searchEngine = GoogleSearchEngine,
+    this.searchEngine = DuckDuckGoSearchEngine,
     this.homePageEnabled = false,
     this.customUrlHomePage = "",
     this.debuggingEnabled = false
