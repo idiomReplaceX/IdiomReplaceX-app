@@ -1,0 +1,3 @@
+The IdiomReplaceX Browser App is a special browser app from the net art project IdiomReplaceX.
+When using this browser, the IdiomReplaceX toolbox is added to almost any web page, allowing
+literary filters to be applied to the content of the web page.
