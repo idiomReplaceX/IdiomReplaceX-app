@@ -618,8 +618,8 @@ class _WebViewTabAppBarState extends State<WebViewTabAppBar>
                       children: [
                         Text(choice),
                         Icon(
-                          FlutterIcons.logo_whatsapp_ion,
-                          color: Colors.green,
+                          Icons.share,
+                          color: Colors.black,
                         )
                       ]),
                 );
