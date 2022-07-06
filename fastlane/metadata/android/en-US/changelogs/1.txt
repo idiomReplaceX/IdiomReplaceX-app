@@ -1,0 +1,5 @@
+* implementing injection code of the IdiomReplaceX js-client
+
+* changing start page and default search engine
+
+* re-branding the flutter browser for IdiomReplaceX
