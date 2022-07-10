@@ -6,7 +6,10 @@ import 'package:flutter_browser/models/webview_model.dart';
 import 'package:flutter_browser/webview_tab.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:flutter/gestures.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import 'animated_flutter_browser_logo.dart';
 
@@ -24,59 +27,94 @@ class _ProjectInfoPopupState extends State<ProjectInfoPopup> {
         text: TextSpan(
             children: [
               TextSpan(
-                text: "Do you like this project? Give a ",
+                text: "The IdiomReplaceX Browser App is a special browser app from "
+                    "the net art project IdiomReplaceX. An art project founded as"
+                    " contribution to the UNESCO City of Media Arts Karlsruhe: ",
                 style: TextStyle(color: Colors.black),
 
               ),
-              WidgetSpan(
-                alignment: PlaceholderAlignment.middle,
-                child: Icon(Icons.star, size: 25, color: Colors.yellow,),
-              ),
               TextSpan(
-                  text: " to",
-                  style: TextStyle(color: Colors.black)
-              )
+                text: "https://www.cityofmediaarts.de",
+                style: TextStyle(color: Colors.blue),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () async {
+                      String url = "https://www.cityofmediaarts.de";
+                      var urlIsLaunchable = await canLaunchUrlString(url);
+                      if(urlIsLaunchable){
+                        await launchUrlString(url); //launch is from url_launcher package to launch URL
+                      } else {
+                        print("URL can't be launched.");
+                      }
+                    }
+
+              ),
             ]
         ),
       ),
-      ElevatedButton.icon(
-        icon: Icon(FlutterIcons.github_box_mco, size: 40.0,),
-        style: ButtonStyle(
-          backgroundColor: MaterialStateColor.resolveWith((states) => Colors.grey.shade300)
-        ),
-        label: RichText(
-          text: TextSpan(
-              children: [
-                TextSpan(
-                    text: "Github: ",
-                    style: TextStyle(color: Colors.black)
-                ),
-                TextSpan(
-                    text: "pichillilorenzo/flutter_inappwebview",
-                    style: TextStyle(color: Colors.blue)
-                )
-              ]
-          ),
-        ),
-        onPressed: () {
-          var browserModel = Provider.of<BrowserModel>(context, listen: false);
-          browserModel.addTab(WebViewTab(
-            key: GlobalKey(),
-            webViewModel: WebViewModel(url: Uri.parse("https://github.com/pichillilorenzo/flutter_inappwebview")),
-          ));
-          Navigator.pop(context);
-        },
-      ),
+      SizedBox(height: 20.0,),
       RichText(
         text: TextSpan(
             children: [
               TextSpan(
-                  text: "and to",
-                  style: TextStyle(color: Colors.black)
+                text: "When using this browser, the IdiomReplaceX toolbox is "
+                    "added to almost any web page, allowing literary filters to "
+                    "be applied to the content of the web page. For further "
+                    "information on the net art project IdiomReplaceX please "
+                    "see: ",
+                style: TextStyle(color: Colors.black),
+
+              ),
+              TextSpan(
+                  text: "https://idiomreplacex.de/",
+                  style: TextStyle(color: Colors.blue),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () async {
+                      String url = "https://idiomreplacex.de/";
+                      var urlIsLaunchable = await canLaunchUrlString(url);
+                      if(urlIsLaunchable){
+                        await launchUrlString(url); //launch is from url_launcher package to launch URL
+                      } else {
+                        print("URL can't be launched.");
+                      }
+                    }
               ),
             ]
         ),
       ),
+      SizedBox(height: 20.0,),
+      RichText(
+        text: TextSpan(
+            children: [
+              TextSpan(
+                text: "The IdiomReplaceX Browser App is based on the excellent ",
+                style: TextStyle(color: Colors.black),
+
+              ),
+              TextSpan(
+                  text: "Flutter Browser App",
+                  style: TextStyle(color: Colors.blue),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () async {
+                      String url = "https://github.com/pichillilorenzo/flutter_browser_app";
+                      var urlIsLaunchable = await canLaunchUrlString(url);
+                      if(urlIsLaunchable){
+                        await launchUrlString(url); //launch is from url_launcher package to launch URL
+                      } else {
+                        print("URL can't be launched.");
+                      }
+                    }
+              ),
+              TextSpan(
+                text: ". We are very grateful for this open source project, "
+                    "without which developing the IdiomReplaceX Browser App "
+                    "would have been a much greater effort.",
+                style: TextStyle(color: Colors.black),
+
+              ),
+            ]
+        ),
+      ),
+      /*
       ElevatedButton.icon(
         icon: Icon(FlutterIcons.github_box_mco, size: 40.0,),
         style: ButtonStyle(
@@ -105,21 +143,7 @@ class _ProjectInfoPopupState extends State<ProjectInfoPopup> {
           Navigator.pop(context);
         },
       ),
-      SizedBox(height: 20.0,),
-      Container(
-        width: 250.0,
-        child: RichText(
-          textAlign: TextAlign.center,
-          text: TextSpan(
-              children: [
-                TextSpan(
-                  text: "Also, if you want, you can support these projects with a donation. Thanks!",
-                  style: TextStyle(color: Colors.black),
-                ),
-              ]
-          ),
-        ),
-      ),
+      */
     ];
 
     if (Platform.isIOS) {

@@ -35,13 +35,15 @@ class _AnimatedFlutterBrowserLogoState extends State<AnimatedFlutterBrowserLogo>
   @override
   Widget build(BuildContext context) {
     return ScaleTransition(
-      scale: Tween(begin: 0.75, end: 2.0).animate(CurvedAnimation(
+      scale: Tween(begin: 1.0, end: 1.1).animate(CurvedAnimation(
           parent: _controller, curve: Curves.elasticOut)),
       child: SizedBox(
         height: widget.size,
         width: widget.size,
         child: CircleAvatar(
-            backgroundImage: AssetImage("assets/icon/irx-logo.png")),
+            backgroundImage: AssetImage("assets/icon/irx-logo.png"),
+            backgroundColor: Colors.white
+        ),
       ),
     );
   }

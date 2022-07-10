@@ -8,8 +8,9 @@ class PopupMenuActions {
   static const String FIND_ON_PAGE = "Find on page";
   static const String DESKTOP_MODE = "Desktop mode";
   static const String SETTINGS = "Settings";
+  static const String IDIOM_REPLACE_X = "IdiomReplaceX";
   static const String DEVELOPERS = "Developers";
-  static const String INAPPWEBVIEW_PROJECT = "InAppWebView Project";
+  // static const String INAPPWEBVIEW_PROJECT = "InAppWebView Project";
 
   static const List<String> choices = <String>[
     NEW_TAB,
@@ -21,7 +22,8 @@ class PopupMenuActions {
     FIND_ON_PAGE,
     DESKTOP_MODE,
     SETTINGS,
+    IDIOM_REPLACE_X,
     DEVELOPERS,
-    INAPPWEBVIEW_PROJECT,
+    //INAPPWEBVIEW_PROJECT,
   ];
 }

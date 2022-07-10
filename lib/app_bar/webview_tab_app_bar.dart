@@ -637,6 +637,7 @@ class _WebViewTabAppBarState extends State<WebViewTabAppBar>
                         )
                       ]),
                 );
+              /*
               case PopupMenuActions.DEVELOPERS:
                 return CustomPopupMenuItem<String>(
                   enabled: browserModel.getCurrentTab() != null,
@@ -649,6 +650,17 @@ class _WebViewTabAppBarState extends State<WebViewTabAppBar>
                           Icons.developer_mode,
                           color: Colors.black,
                         )
+                      ]),
+                );
+               */
+              case PopupMenuActions.IDIOM_REPLACE_X:
+                return CustomPopupMenuItem<String>(
+                  enabled: true,
+                  value: choice,
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(choice),
                       ]),
                 );
               case PopupMenuActions.FIND_ON_PAGE:
@@ -665,6 +677,7 @@ class _WebViewTabAppBarState extends State<WebViewTabAppBar>
                         )
                       ]),
                 );
+              /*
               case PopupMenuActions.INAPPWEBVIEW_PROJECT:
                 return CustomPopupMenuItem<String>(
                   enabled: true,
@@ -681,6 +694,7 @@ class _WebViewTabAppBarState extends State<WebViewTabAppBar>
                         )
                       ]),
                 );
+                */
               default:
                 return CustomPopupMenuItem<String>(
                   value: choice,
@@ -723,6 +737,11 @@ class _WebViewTabAppBarState extends State<WebViewTabAppBar>
       case PopupMenuActions.DESKTOP_MODE:
         toggleDesktopMode();
         break;
+      case PopupMenuActions.IDIOM_REPLACE_X:
+        Future.delayed(const Duration(milliseconds: 300), () {
+          openProjectPopup();
+        });
+        break;
       case PopupMenuActions.DEVELOPERS:
         Future.delayed(const Duration(milliseconds: 300), () {
           goToDevelopersPage();
@@ -733,11 +752,13 @@ class _WebViewTabAppBarState extends State<WebViewTabAppBar>
           goToSettingsPage();
         });
         break;
+      /*
       case PopupMenuActions.INAPPWEBVIEW_PROJECT:
         Future.delayed(const Duration(milliseconds: 300), () {
           openProjectPopup();
         });
         break;
+        */
     }
   }
 
