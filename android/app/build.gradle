@@ -46,8 +46,8 @@ android {
         applicationId "de.idiomreplacex.browser_app"
         minSdkVersion 20
         targetSdkVersion 30
-        versionCode 1
-        versionName "0.1"
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
         multiDexEnabled true
     }
 
