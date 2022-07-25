@@ -13,4 +13,6 @@ The IdiomReplaceX Browser App is based on the excellent
 for this open source project, without which developing the IdiomReplaceX Browser App would have
 been a much greater effort.
 
-It will soon be available on [f-droid](https://f-droid.org/) and on the Google Play Store.
+[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
+     alt="Get it on F-Droid"
+     height="80">](https://f-droid.org/packages/de.idiomreplacex.browser_app/)
