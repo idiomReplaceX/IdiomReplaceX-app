@@ -157,6 +157,7 @@ class _WebViewTabAppBarState extends State<WebViewTabAppBar>
         children: <Widget>[
           TextField(
             onSubmitted: (value) {
+              value = Util.hostNameWithPath2Url(value);
               var url = Uri.parse(value.trim());
               if (!url.scheme.startsWith("http") && !Util.isLocalizedContent(url)) {
                 url = Uri.parse(settings.searchEngine.searchUrl + value);

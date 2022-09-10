@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_browser/util.dart';
 import 'package:flutter_browser/webview_tab.dart';
 import 'package:provider/provider.dart';
 
@@ -81,11 +82,11 @@ class _EmptyTabState extends State<EmptyTab> {
   void openNewTab(value) {
     var browserModel = Provider.of<BrowserModel>(context, listen: false);
     var settings = browserModel.getSettings();
-
+    value = Util.hostNameWithPath2Url(value);
     browserModel.addTab(WebViewTab(
       key: GlobalKey(),
       webViewModel: WebViewModel(
-          url: Uri.parse(value.startsWith("http") ? value : settings.searchEngine.searchUrl + value)
+          url: Uri.parse(Util.startsWithHttpScheme(value) ? value : settings.searchEngine.searchUrl + value)
       ),
     ));
   }
