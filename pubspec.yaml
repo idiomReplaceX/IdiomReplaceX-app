@@ -94,6 +94,7 @@ flutter:
     - assets/images/bing_logo.png
     - assets/images/duckduckgo_logo.png
     - assets/images/ecosia_logo.png
+    - assets/images/idiomscreen2x.png
     - assets/icon/icon.png
     - assets/icon/irx-logo.png
     - assets/js/idiomreplacex-client/inject.js

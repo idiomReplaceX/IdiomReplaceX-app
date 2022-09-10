@@ -18,17 +18,33 @@ class _EmptyTabState extends State<EmptyTab> {
   @override
   Widget build(BuildContext context) {
     var browserModel = Provider.of<BrowserModel>(context, listen: false);
-    var settings = browserModel.getSettings();
+    //var settings = browserModel.getSettings();
 
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 40.0),
+        padding: EdgeInsets.symmetric(horizontal: 30.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Image(image: AssetImage(settings.searchEngine.assetIcon)),
-            SizedBox(height: 10,),
+            SizedBox(height: 30,),
+            Text("IdiomReplaceX",
+              style: TextStyle(color: Colors.black, fontSize: 30.0,),
+            ),
+            SizedBox(height: 18,),
+            Image(image: AssetImage('assets/images/idiomscreen2x.png')),
+            SizedBox(height: 18,),
+            Text("Literarische Filter für das Internet",
+              style: TextStyle(color: Colors.black, fontSize: 18.0,),
+            ),
+            SizedBox(height: 18,),
+            Text("IdiomReplaceX ist ein Kunstprojekt zur literarischen Bearbeitung "
+                "von Webseiten. Über eine App können literarische Filter auf "
+                "beliebige Webseiten angewendet werden. Wie sieht ihre "
+                "Lieblingsseite wohl mit dem Filter \"Weichspüler\" aus?",
+              style: TextStyle(color: Colors.black, fontSize: 12.0,),
+            ),
+            SizedBox(height: 18,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -39,10 +55,11 @@ class _EmptyTabState extends State<EmptyTab> {
                   },
                   textInputAction: TextInputAction.go,
                   decoration: InputDecoration(
-                    hintText: "Search for or type a web address",
-                    hintStyle: TextStyle(color: Colors.black54, fontSize: 25.0),
+                    hintText: "Suche oder Eingabe einer Webadresse",
+                    hintStyle: TextStyle(
+                        color: Colors.black54, fontSize: 18.0),
                   ),
-                  style: TextStyle(color: Colors.black, fontSize: 25.0,),
+                  style: TextStyle(color: Colors.black, fontSize: 18.0,),
                 )),
                 IconButton(
                   icon: Icon(Icons.search, color: Colors.black54, size: 25.0),
