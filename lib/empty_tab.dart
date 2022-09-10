@@ -23,9 +23,10 @@ class _EmptyTabState extends State<EmptyTab> {
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 30.0),
-        child: Column(
+        child: SingleChildScrollView(
+            child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             SizedBox(height: 30,),
             Text("IdiomReplaceX",
@@ -71,6 +72,7 @@ class _EmptyTabState extends State<EmptyTab> {
               ],
             ),
           ],
+          )
         ),
       ),
     );
