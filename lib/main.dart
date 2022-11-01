@@ -73,7 +73,7 @@ class FlutterBrowserApp extends StatelessWidget {
     return MaterialApp(
         title: 'IdiomReplaceX Browser',
         theme: ThemeData(
-          primarySwatch: Colors.purple,
+          primarySwatch: Colors.yellow,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         initialRoute: '/',
