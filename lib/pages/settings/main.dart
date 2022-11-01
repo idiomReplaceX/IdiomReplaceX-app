@@ -8,6 +8,7 @@ import 'package:flutter_browser/pages/settings/ios_settings.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:provider/provider.dart';
+import 'dart:io' show Platform;
 
 import '../../custom_popup_menu_item.dart';
 
@@ -32,36 +33,14 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-        length: 3,
+        length: 2,
         child: Scaffold(
           appBar: AppBar(
             bottom: TabBar(
                 onTap: (value) {
                   FocusScope.of(context).unfocus();
                 },
-                tabs: [
-                  Tab(
-                    text: "Cross-Platform",
-                    icon: Container(
-                      width: 25,
-                      height: 25,
-                      child: CircleAvatar(
-                        backgroundImage: AssetImage("assets/icon/icon.png"),
-                      ),
-                    ),
-                  ),
-                  Tab(
-                    text: "Android",
-                    icon: Icon(
-                      Icons.android,
-                      color: Colors.green,
-                    ),
-                  ),
-                  Tab(
-                    text: "iOS",
-                    icon: Icon(FlutterIcons.apple1_ant),
-                  ),
-                ]),
+                tabs: _platformSpecificSettingsTabs()),
             title: const Text(
               "Settings",
             ),
@@ -107,13 +86,49 @@ class _SettingsPageState extends State<SettingsPage> {
           ),
           body: TabBarView(
             physics: NeverScrollableScrollPhysics(),
-            children: [
-              CrossPlatformSettings(),
-              AndroidSettings(),
-              IOSSettings(),
-            ],
+            children: _platformSpecificSettingsPages(),
           ),
         ));
+  }
+
+  List<Widget> _platformSpecificSettingsTabs() {
+    List<Widget> tabs = [];
+    tabs.add(Tab(
+        text: "Cross-Platform",
+        icon: Container(
+          width: 25,
+          height: 25,
+          child: CircleAvatar(
+            backgroundImage: AssetImage("assets/icon/icon.png"),
+          ),
+        ),
+      ));
+    if (Platform.isAndroid) {
+      tabs.add( Tab(
+        text: "Android",
+        icon: Icon(
+          Icons.android,
+          color: Colors.green,
+        ),
+      ));
+    } else if (Platform.isIOS) {
+      tabs.add( Tab(
+        text: "iOS",
+        icon: Icon(FlutterIcons.apple1_ant),
+      ));
+    }
+    return tabs;
+  }
+
+  List<Widget> _platformSpecificSettingsPages() {
+    List<Widget> settingsPages = [];
+    settingsPages.add(CrossPlatformSettings());
+    if (Platform.isAndroid) {
+      settingsPages.add(AndroidSettings());
+    } else if (Platform.isIOS) {
+      settingsPages.add(IOSSettings());
+    }
+    return settingsPages;
   }
 
   void _popupMenuChoiceAction(String choice) async {
